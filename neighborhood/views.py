@@ -2,7 +2,7 @@ from django.shortcuts import render
 from django.http import HttpResponse
 
 
-def index(request):
+def home(request):
     profile = Profile.objects.all() 
     businesses = Businesses.objects.all()
 

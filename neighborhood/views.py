@@ -7,8 +7,8 @@ from django.contrib.auth.models import User
 
 
 def home(request):  
-    neighborhood = neighborhood.objects.all() 
-    return render(request, 'home.html',{{"neighborhood":neighborhood}})
+    
+    return render(request, 'home.html')
 
 def profile(request):
     current_user = request.user

@@ -49,16 +49,16 @@ def search_results(request):
 @login_required(login_url='/accounts/login/')
 def neighborhood(request,id):
     date = dt.date.today()
-    post=Neighbourhood.objects.get(id=id)
-    brushs = Post.objects.filter(neighbourhood=post)
-    business = Business.objects.filter(neighbourhood=post)
+    post=Neighborhood.objects.get(id=id)
+    brushs = Post.objects.filter(neighborhood=post)
+    business = Business.objects.filter(neighborhood=post)
     return render(request,'each_hood.html',{"post":post,"date":date,"brushs":brushs, "business":business})
 
 
 def new_post(request,id):
     date = dt.date.today()
-    hood=Neighbourhood.objects.get(id=id)
-    posts = Post.objects.filter(neighbourhood=hood)
+    hood=Neighborhood.objects.get(id=id)
+    posts = Post.objects.filter(neighborhood=hood)
     form = PostForm()
     if request.method == 'POST':
         form = PostForm(request.POST, request.FILES)
@@ -72,4 +72,21 @@ def new_post(request,id):
     else:
         form = PostForm()
         return render(request,'new_post.html',{"form":form,"posts":posts,"hood":hood,  "date":date})
+
+def business_post(request,id):
+    date = dt.date.today()
+    neighborhood=Neighborhood.objects.get(id=id)
+    business = Business.objects.filter(neighborhood=neighborhood)
+    form = BusinessForm()
+    if request.method == 'POST':
+        form = BusinessForm(request.POST, request.FILES)
+        if form.is_valid():
+            business = form.save(commit=False)
+            business.profile = request.user.profile
+            business.neighborhood = hood
+            business.save()
+            return redirect('index')
+    else:
+        form = BusinessForm()
+        return render(request,'new_business.html',{"form":form,"business":business,"neighborhood":neighborhood,  "date":date})
 

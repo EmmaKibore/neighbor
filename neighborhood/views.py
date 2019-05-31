@@ -44,3 +44,22 @@ def search_results(request):
     else:
         message = "You haven't searched for any term"
         return render(request, 'search.html',{"message":message})
+
+def post_new(request,id):
+    date = dt.date.today()
+    hood=Neighbourhood.objects.get(id=id)
+    posts = Post.objects.filter(neighbourhood=hood)
+    form = PostForm()
+    if request.method == 'POST':
+        form = PostForm(request.POST, request.FILES)
+        if form.is_valid():
+            post = form.save(commit=False)
+            post.user = request.user.profile
+            post.profile = profile
+            post.neighbourhood = hood
+            post.save()
+            return redirect('index')
+    else:
+        form = PostForm()
+        return render(request,'new_post.html',{"form":form,"posts":posts,"hood":hood,  "date":date})
+

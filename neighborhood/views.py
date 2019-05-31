@@ -45,7 +45,17 @@ def search_results(request):
         message = "You haven't searched for any term"
         return render(request, 'search.html',{"message":message})
 
-def post_new(request,id):
+
+@login_required(login_url='/accounts/login/')
+def neighborhood(request,id):
+    date = dt.date.today()
+    post=Neighbourhood.objects.get(id=id)
+    brushs = Post.objects.filter(neighbourhood=post)
+    business = Business.objects.filter(neighbourhood=post)
+    return render(request,'each_hood.html',{"post":post,"date":date,"brushs":brushs, "business":business})
+
+
+def new_post(request,id):
     date = dt.date.today()
     hood=Neighbourhood.objects.get(id=id)
     posts = Post.objects.filter(neighbourhood=hood)

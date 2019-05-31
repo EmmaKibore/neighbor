@@ -1,0 +1,137 @@
+{%extends 'base.html'%}
+
+{% block content %}
+    {{block.super}}
+<div style="text-align:center; padding-top: 130px; padding-bottom: 130px; " class="container-fluid" id="moda">
+
+        <div class="content text-center">
+                <h1 data-hover="The Nairobian"> Welcome  To  HoodWatch</h1>
+              </div>
+              <h6 style="text-align:center; color:rgb(253, 253, 253);">{{date|date:"l d  F  Y"}}</h6>
+
+   
+    
+</div>
+<div class="container">
+    <hr>  <a href="{% url 'new-hood'%}"><button class="btn btn-outline-light btn-sm">Create a Hood</button></a>  <hr>
+    <div class="row">
+        {% for hood in hoods%}
+            <div class="col-md-4 col-lg-4 col-sm-6 ">
+                <div style="" class="card">
+                    <div style="text-align:center; color:antiquewhite; background-color:rgb(10, 10, 10);" class="card-header">
+                        <h5>{{ hood.name}}</h5>
+                    </div>
+                    <div style="text-align:center; background-color:rgb(10, 10, 10);" class="card-image">
+                        
+                            <img class="img-responsive" src="{{hood.image.url}}" alt="" height="200px" width="300px">
+                        
+                    </div>
+                    <div style="background-color:rgb(10, 10, 10);" class="card-footer"> 
+                        <a href="/hoods/{{ hood.id}}"> <button class="btn btn-outline-primary btn-sm">Join Hood &#8594;</button> </a>
+                    </div>
+                </div>
+                <br>
+            <br>
+            </div>
+            
+        {% endfor%}
+    </div>
+</div>
+<div style="color:aliceblue;"  id="quotes" class="container-fluid">
+    <hr> <h1 data-hover="HoodWatch Quotes">Quotes to Explore</h1> <hr>
+    <div class="row">
+        <div class="col-md-3">
+            <div class="card">
+                <div style="background-color: black; height:200px;" class="card-header">
+                    <h5>''The best preparation for tomorrow is doing your best today.''</h5>
+                </div>
+                <div style="background-color: black;" class="card-footer">
+                    <p> &#8594;  H. Jackson Brown, Jr.</p>
+                </div>
+            </div>
+            <br>
+            <br>
+        </div>
+        <div class="col-md-3">
+            <div class="card">
+                <div style="height:200px; background-color: black;" class="card-header">
+                    <h5>''Share your smile with the world. It's a symbol of friendship and peace. ''</h5>
+                </div>
+                <div style="background-color: black;" class="card-footer">
+                    <p> &#8594;  Christie Brinkley</p>
+                </div>
+            </div>
+            <br>
+            <br> 
+        </div>
+        <div class="col-md-3">
+            <div class="card">
+                <div style="height:200px; background-color: black;" class="card-header">
+                    <h5>''Remember that the most valuable antiques are dear old friends.''</h5>
+                </div>
+                <div style="background-color: black;" class="card-footer">
+                    <p> &#8594;  H. Jackson Brown, Jr.</p>
+                </div>
+            </div>
+            <br>
+            <br> 
+        </div>
+        <div class="col-md-3">
+            <div class="card">
+                <div style="height:200px; background-color: black;" class="card-header">
+                    <h5>''Walking with a friend in the dark is better than walking alone in the light.''</h5>
+                </div>
+                <div style="background-color: black;" class="card-footer">
+                    <p> &#8594;   Helen Keller</p>
+                </div>
+            </div>
+            <br>
+            <br>
+        </div>
+    </div>
+    <div class="row">
+            <div class="col-md-3">
+                <div class="card">
+                    <div style="background-color: black; height:200px;" class="card-header">
+                        <h5>''Light the world with a smile.''</h5>
+                    </div>
+                    <div style="background-color: black;" class="card-footer">
+                        <p> &#8594;  Lewis Mutuma</p>
+                    </div>
+                </div> 
+            </div>
+            <div class="col-md-3">
+                <div class="card">
+                    <div style="height:200px; background-color: black;" class="card-header">
+                        <h5>''I don't play when it comes to my heart let's get it though.'</h5>
+                    </div>
+                    <div style="background-color: black;" class="card-footer">
+                        <p> &#8594;  Cardi B</p>
+                    </div>
+                </div> 
+            </div>
+            <div class="col-md-3">
+                <div class="card">
+                    <div style="height:200px; background-color: black;" class="card-header">
+                        <h5>''Remember that the most valuable antiques are dear old friends.''</h5>
+                    </div>
+                    <div style="background-color: black;" class="card-footer">
+                        <p> &#8594;  H. Jackson Brown, Jr.</p>
+                    </div>
+                </div> 
+            </div>
+            <div class="col-md-3">
+                <div class="card">
+                    <div style="height:200px; background-color: black;" class="card-header">
+                        <h5>''Walking with a friend in the dark is better than walking alone in the light.''</h5>
+                    </div>
+                    <div style="background-color: black;" class="card-footer">
+                        <p> &#8594;   Helen Keller</p>
+                    </div>
+                </div> 
+            </div>
+    </div>
+    
+    
+</div>
+{% endblock %}

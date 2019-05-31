@@ -6,7 +6,7 @@ from django.core.validators import MinValueValidator,MaxValueValidator
 
 # Create your models here.        
 class Profile(models.Model):
-    user = models.OneToOneField(User, on_delete=models.CASCADE,related_name='profile')
+    user = models.ForeignKey(User, on_delete=models.CASCADE,related_name='profile')
     first_name = models.CharField(max_length=30)
     last_name = models.CharField(max_length=30)
     bio = models.CharField(max_length=100)
@@ -34,9 +34,9 @@ def create_user_profile(sender, instance, created, **kwargs):
     if created:
         Profile.objects.create(user=instance)
 
-@receiver(post_save, sender=User)
-def save_user_profile(sender, instance, **kwargs):
-    instance.profile.save()
+# @receiver(post_save, sender=User)
+# def save_profile(sender, instance, **kwargs):
+#     instance.profile.save()
 
 class Neighbourhood(models.Model):
     name = models.CharField(max_length = 300)

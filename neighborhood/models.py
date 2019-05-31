@@ -4,7 +4,15 @@ from django.db.models.signals import post_save
 from django.dispatch import receiver
 from django.core.validators import MinValueValidator,MaxValueValidator
 
-# Create your models here.        
+# Create your models here. 
+class Neighbourhood(models.Model):
+    name = models.CharField(max_length = 300)
+    image = models.ImageField(upload_to='neighimage/', null=True)
+    # admin = models.ForeignKey(Profile, related_name='hoods', null=True)
+    description = models.CharField(max_length = 300,default='My hood!!!')
+
+
+
 class Profile(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE,related_name='profile')
     first_name = models.CharField(max_length=30)
@@ -38,11 +46,7 @@ def create_user_profile(sender, instance, created, **kwargs):
 # def save_profile(sender, instance, **kwargs):
 #     instance.profile.save()
 
-class Neighbourhood(models.Model):
-    name = models.CharField(max_length = 300)
-    image = models.ImageField(upload_to='neighimage/', null=True)
-    admin = models.ForeignKey(Profile, related_name='hoods', null=True)
-    description = models.CharField(max_length = 300,default='My hood!!!')
+
 
 class Business(models.Model):
     name = models.CharField(max_length=30)

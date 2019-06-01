@@ -20,3 +20,12 @@ To install, follow the following instructions;
     $ source virtual/bin/activate
     Install all the necessary requirements by running pip install -r requirements.txt (Python 3.6).
     $ ./manager.py runserver
+
+## Technologies used
+Python3.6
+Django 1.11
+Heroku
+Bootstrap
+
+License (MIT License)
+This project is licensed under the MIT Open Source license, (c) Lewis Mutuma    

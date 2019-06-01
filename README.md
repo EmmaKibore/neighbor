@@ -1,3 +1,8 @@
+# Neighborhood
+This is an application that allows you to be in the loop about everything happening in your neighborhood. From contact information of different handyman to meeting announcements or even alerts.
+
+
+
 ## User stories
 The user should be able to:
 
@@ -21,11 +26,24 @@ To install, follow the following instructions;
     Install all the necessary requirements by running pip install -r requirements.txt (Python 3.6).
     $ ./manager.py runserver
 
+## How to Prepare enviroment variables
+Since one needs a virtual enviroment, Create a virtual file and add the following configutions to it
+
+    SECRET_KEY= #secret key will be added by default
+    DEBUG= #set to false in production
+    DB_NAME= #database name
+    DB_USER= #database user
+    DB_PASSWORD=#database password
+    DB_HOST="127.0.0.1"
+    MODE= # dev or prod , set to prod during production
+    ALLOWED_HOSTS='.localhost', '.herokuapp.com', '.127.0.0.1'
+
+
 ## Technologies used
 Python3.6
 Django 1.11
 Heroku
 Bootstrap
 
-License (MIT License)
-This project is licensed under the MIT Open Source license, (c) Lewis Mutuma    
+## License (MIT License)
+This project is licensed under the MIT Open Source license, (c) Emma Kibore    

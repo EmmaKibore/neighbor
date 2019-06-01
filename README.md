@@ -1,5 +1,5 @@
 # Neighborhood
-This is an application that allows you to be in the loop about everything happening in your neighborhood. From contact information of different handyman to meeting announcements or even alerts.
+This is an application that allows you to be in the loop about everything happening in your neighborhood. From contact information of different handyman to meetingS, announcements or even alerts.
 
 
 

@@ -5,12 +5,11 @@ from django.dispatch import receiver
 from django.core.validators import MinValueValidator,MaxValueValidator
 
 # Create your models here. 
-class Neighbourhood(models.Model):
+class Neighborhood(models.Model):
     name = models.CharField(max_length = 300)
     image = models.ImageField(upload_to='neighimage/', null=True)
     # admin = models.ForeignKey(Profile, related_name='hoods', null=True)
-    description = models.CharField(max_length = 300,default='My hood!!!')
-
+    neighborhood_name = models.CharField('Neighborhood_name',max_length = 70, blank=True, null=True)
 
 
 class Profile(models.Model):
@@ -20,7 +19,7 @@ class Profile(models.Model):
     bio = models.CharField(max_length=100)
     profile_pic = models.ImageField(upload_to='profile/')
     pub_date_created = models.DateTimeField(auto_now_add=True, null=True)
-    neighbourhood = models.ForeignKey('Neighbourhood', blank=True, null=True)
+    neighborhood = models.ForeignKey('Neighborhood', blank=True, null=True)
 
     def __str__(self):
         return self.first_name
@@ -54,7 +53,7 @@ class Business(models.Model):
     phone_number = models.CharField(max_length=10)
     image = models.ImageField(upload_to='bsimage/')
     description = models.CharField(max_length = 300)
-    neighbourhood = models.ForeignKey(Neighbourhood, related_name='businesses')
+    neighborhood = models.ForeignKey(Neighborhood, related_name='businesses')
     profile = models.ForeignKey(Profile, related_name='profiles')
 
     @classmethod
@@ -67,7 +66,7 @@ class Business(models.Model):
 class Post(models.Model):
     user = models.ForeignKey(Profile, related_name='profile')
     post = models.CharField(max_length=30)
-    neighbourhood = models.ForeignKey(Neighbourhood, related_name='posts')
+    neighborhood = models.ForeignKey(Neighborhood, related_name='posts')
 
 class Location(models.Model):
     name = models.CharField(max_length=30)

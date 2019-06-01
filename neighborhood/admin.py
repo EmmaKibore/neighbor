@@ -1,8 +1,8 @@
 from django.contrib import admin
-from .models import Profile,Business,Neighbourhood,Post
+from .models import Profile,Business,Neighborhood,Post
 
 admin.site.register(Profile)
-admin.site.register(Neighbourhood)
+admin.site.register(Neighborhood)
 admin.site.register(Business)
 admin.site.register(Post)
 

@@ -1,4 +1,4 @@
-{% extends "registration/base.html" %}
+  {% extends "registration/base.html" %}
 {% load bootstrap4 %}
 {% block content %}
 <div class="container">
@@ -20,7 +20,7 @@
            {% csrf_token %}
            {% bootstrap_form form %}
            <div class="form-group">
-             <input type="submit" class="btn btn-primary btn-sm" value="Sign Up">
+             <input type="su  bmit" class="btn btn-primary btn-sm" value="Sign Up">
            </div>
 
            <input type="hidden" name="next" value="{{next}}">

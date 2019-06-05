@@ -30,4 +30,4 @@ class UserTest(TestCase):
         users = User.objects.all()
         self.assertTrue(len(users)==0)
 
-# Create your tests here.
+

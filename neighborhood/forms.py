@@ -16,7 +16,7 @@ class EditForm(forms.ModelForm):
 
 class HoodForm(forms.ModelForm):
     class Meta:
-        model = Neighborhood
+        model = Neighbourhood
         exclude = ['admin']
 
 class PostForm(forms.ModelForm):

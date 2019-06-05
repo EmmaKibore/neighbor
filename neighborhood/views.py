@@ -54,6 +54,12 @@ def neighborhood(request,id):
     business = Business.objects.filter(neighborhood=post)
     return render(request,'each_hood.html',{"post":post,"date":date,"brushs":brushs, "business":business})
 
+def neighborhoods(request):
+    neighborhoods = Neighbourhood.objects.all()
+   
+    return render(request,'new_neighborhood.html',{"neighborhoods":neighborhoods})
+
+
 
 def new_post(request,id):
     date = dt.date.today()
@@ -73,9 +79,8 @@ def new_post(request,id):
         form = PostForm()
         return render(request,'new_post.html',{"form":form,"posts":posts,"hood":hood,  "date":date})
 
-def business_post(request,id):
+def new_business(request,id):
     date = dt.date.today()
-    neighborhood=Neighborhood.objects.get(id=id)
     business = Business.objects.filter(neighborhood=neighborhood)
     form = BusinessForm()
     if request.method == 'POST':

@@ -1,4 +1,4 @@
-from django.conf.urls import url
+from django.conf.urls import url, include
 from . import views
 from django.conf import settings 
 from django.conf.urls.static import static
@@ -12,6 +12,7 @@ urlpatterns=[
     url(r'^neighborhood/new/business/(\d+)$',views.new_business, name='new-business'),
     url(r'^neighborhood/(\d+)',views.neighborhood,name='neighborhood'),
     url(r'^neighborhoods/',views.neighborhoods,name='neighborhoods'),
+    url(r'^accounts/',include('registration.backends.simple.urls')),
 ]
 
 if settings.DEBUG:
